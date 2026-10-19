@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAP1BMVEWTlbBfYYnW1uFOUX2rrME+QHB+gKC/wNAuMWX9/f4AAADIydfn5+1GSXe1tsl1d5kAAAAAAAAAAAAAAAAAAAB/iyvlAAAAEHRSTlP/////////////AP//////KeUZWAAAAqZJREFUeNrtm+u2oyAMhRPUjgwE3v9tB9TW2ooiFeOalfw97dmfm1xoVwN/16KvEqtScJV6igEuVF9lgIvlvxDgev0lATDoLwiAQX6BADz6MwEw6b8IgEv/SXATgL5nIwA+/ZEAGPUHgjsA9D0ngQAAq34gEADomUMABEAABEAABEAABEAABOC/AQDHDaCBF4BsIcFpOeC0RlYA0Fp7TgDSZQTnlWG0QD9qAlC7fcg2EkBNB3YSHSOAdhUBgoLCvUPYfsmPOdDueNwOBMeO4diZmfDvDW7/Pb6EqlXBoOCaPQL7qFaGo0K6HiYC/Ydq9QE3uex3CHIzAcoaTrTZ+W6TIC8TCjqhfypoawCTHmWaUNKKm9dDDkY8moRHWSYUDnG9CNV6Wvdof0QXDqPG6Y9Q8Abx5pHrKk1DNFpvQMweWaw1jr3Seg1iFESbl4s/3Qe8WUN4Fuh8Sq7ehQSdTjDguwmK6t2ICFSCAWjOhHQinHElwxQDdHOqYt07IcJ6OsBsAta+lJJfM8K6nZ507odTCk5YnQhLWQBhvnQ/HodPUKguB8BH26A58tgNTtEQzUnhvg/EZR0Bqqmh0Y7bHsAZZZcPa5VxML2XfPvhBOblAMyt/YOCCEddmzzpF8ho47JETWYSvg8aq5SJoZTaVV2fC9huWQCHuvzxsG28PIJNZgEc7fIFES+wTwQ60AcIzrIhzIWgpDTQd3ltN6KmkMGGzBnilTbxEyMWdcJQSypTdahAj0jdR7k6m/7qADI7rFN2q+KC7lbv6mJH6H6dBU1sAa1zQ1UaF1TBB93cxp1obPJVrQAIgAAIgAAIgAAIgAAIAD+A/K6YH0B+Xc8PIDsm/Gs+/ItOsmt2g3U//oVH/pVP/qXXG6z98i8+869+32D5/fL1/38rpgbYQh+vhwAAAABJRU5ErkJggg==">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dan Musa Group</title>
+<meta name="description" content="Dan Musa Group: phones and accessories, real estate and construction, recycling, oil and gas, mining and logistics. Based in Kaduna, Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--sym:url(data:image/png;base64,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);--flogo:url(data:image/png;base64,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);--logo:#2E3165;--brand:#2E3165;--brand2:#4349A0;--deep:#15173D;--gold:#D4A03C;--goldt:#8A6112;--bg:#F7F7FB;--sf:#fff;--ink:#14163A;--mute:#5A5E7E;--line:#E3E4F0;--tint:#EEEFF8;--hf:"Fraunces",Georgia,serif;--f:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;--sh:0 24px 50px -24px rgba(46,49,101,.35);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--logo:#EDEEFA;--bg:#0C0D26;--sf:#14163A;--ink:#EDEEFA;--mute:#A4A8CC;--line:#262A5A;--tint:#1A1D4A;--goldt:#E6B95A;--sh:none;color-scheme:dark}}
+:root[data-theme="dark"]{--logo:#EDEEFA;--bg:#0C0D26;--sf:#14163A;--ink:#EDEEFA;--mute:#A4A8CC;--line:#262A5A;--tint:#1A1D4A;--goldt:#E6B95A;--sh:none;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 var(--f);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--deep);z-index:90}
+h1,h2,h3,h4{margin:0;line-height:1.12}p{margin:0}a{color:inherit}button{font-family:inherit}
+h1,h2{font-family:var(--hf);font-weight:700;letter-spacing:-.015em}h1,h2,.lead{text-wrap:balance}.lead{text-wrap:pretty}h3,h4{font-weight:800;letter-spacing:-.01em}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:8px}
+.c{max-width:1200px;margin:0 auto;padding:0 28px}
+.sec{padding:104px 0}.alt{background:var(--sf);border-block:1px solid var(--line)}
+.eb{display:inline-flex;align-items:center;gap:10px;color:var(--goldt);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.eb::before{content:"";width:28px;height:2px;background:var(--gold)}
+.h2{font-size:clamp(32px,4.2vw,50px);max-width:20ch}
+.lead{color:var(--mute);font-size:18px;max-width:60ch;margin-top:16px}
+.center{text-align:center}.center .h2,.center .lead{margin-inline:auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s;background:none;color:inherit;line-height:1.2}
+.btn:hover{transform:translateY(-2px)}
+.gold{background:var(--gold);color:#1a1530;box-shadow:0 12px 28px -12px rgba(212,160,60,.8)}.gold:hover{background:#E2B04E}
+.out{border-color:rgba(255,255,255,.35);color:#fff}.out:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.nv{background:var(--brand);color:#fff}.nv:hover{background:var(--brand2)}
+.ln{border-color:var(--line);color:var(--ink);background:var(--sf)}.ln:hover{border-color:var(--gold)}
+.sm{padding:10px 20px;font-size:14px}
+.arr::after{content:"→";transition:transform .2s}.arr:hover::after{transform:translateX(4px)}
+.tl{color:var(--goldt);font-weight:700;background:none;border:0;cursor:pointer;padding:0;font-size:15px;display:inline-flex;gap:8px}.tl::after{content:"→";transition:transform .2s}.tl:hover::after{transform:translateX(5px)}
+.flogo{background:#fff;-webkit-mask:var(--flogo) center/contain no-repeat;mask:var(--flogo) center/contain no-repeat}
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:80;background:var(--sf);background:color-mix(in srgb,var(--sf) 84%,transparent);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.sc{border-color:var(--line);box-shadow:0 10px 30px -22px rgba(20,22,58,.5)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+.brand{display:flex;align-items:center;gap:14px;background:none;border:0;cursor:pointer;color:var(--ink);padding:0;text-align:left}
+.mk{width:50px;height:23px;background:var(--logo);-webkit-mask:var(--sym) center/contain no-repeat;mask:var(--sym) center/contain no-repeat;flex:none}
+.brand b{display:block;font-size:18px;letter-spacing:-.01em;line-height:1.05}.brand small{color:var(--mute);font-size:12px;font-weight:500;letter-spacing:.04em}
+nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+nav button{background:none;border:0;padding:10px 18px;border-radius:999px;font-weight:600;font-size:15px;color:var(--mute);cursor:pointer;transition:.2s}
+nav button:hover{color:var(--ink);background:var(--tint)}nav button.on{color:var(--brand);background:var(--tint)}
+:root[data-theme="dark"] nav button.on{color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav button.on{color:#fff}}
+.burger{display:none;background:var(--tint);border:0;border-radius:12px;width:46px;height:46px;color:var(--ink);cursor:pointer;place-items:center}
+/* hero */
+.hero{background:linear-gradient(135deg,#15173D 0%,#2E3165 62%,#3B418F 100%);color:#fff;position:relative;overflow:hidden;padding:96px 0 170px}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 420px at 88% 8%,rgba(212,160,60,.28),transparent 62%),radial-gradient(rgba(255,255,255,.09) 1.2px,transparent 1.4px) 0 0/30px 30px}
+.hero .wm{position:absolute;right:-6%;bottom:-8%;width:62%;aspect-ratio:2.2/1;background:#fff;opacity:.06;-webkit-mask:var(--sym) center/contain no-repeat;mask:var(--sym) center/contain no-repeat;pointer-events:none}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center;position:relative}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);font-size:13px;font-weight:600;color:#E4E6FA;margin-bottom:26px}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(212,160,60,.3)}
+.hero h1{font-size:clamp(44px,6.2vw,80px);max-width:12ch;line-height:1.04}.hero h1 em{font-style:italic;color:var(--gold);font-weight:500}
+.hero .sub{font-size:19px;color:#C9CCEA;max-width:50ch;margin:26px 0 38px}
+.acts{display:flex;gap:14px;flex-wrap:wrap}
+.glass{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gt{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-radius:20px;padding:22px;color:#fff;text-align:left;cursor:pointer;transition:.25s;position:relative}
+.gt:hover{background:rgba(255,255,255,.16);transform:translateY(-6px);border-color:var(--gold)}
+.gt:nth-child(even){transform:translateY(18px)}.gt:nth-child(even):hover{transform:translateY(12px)}
+.gt svg{width:30px;height:30px;stroke:var(--gold);display:block;margin-bottom:16px}.gt b{display:block;font-size:16px}.gt small{color:#B4B8DC;font-size:13px}
+.gt span{position:absolute;top:18px;right:20px;font:700 13px var(--hf);color:rgba(255,255,255,.35)}
+/* ticker */
+.tick{margin-top:84px;background:var(--deep);color:#B4B8DC;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
+.tick div{display:flex;width:max-content;animation:mq 40s linear infinite}
+.tick span{padding:16px 34px;font-weight:600;font-size:14px;white-space:nowrap}.tick span::before{content:"✦";color:var(--gold);margin-right:34px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* facts */
+.facts{margin-top:-96px;position:relative;z-index:3}
+.fg{background:var(--sf);border:1px solid var(--line);border-radius:24px;box-shadow:var(--sh);display:grid;grid-template-columns:repeat(4,1fr)}
+.fg div{padding:34px 30px;border-right:1px solid var(--line)}.fg div:last-child{border:0}
+.fg b{display:block;font:700 34px var(--hf);letter-spacing:-.02em;color:var(--brand)}
+:root[data-theme="dark"] .fg b{color:var(--gold)}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fg b{color:var(--gold)}}
+.fg span{color:var(--mute);font-size:14px}
+/* generic */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.vis{position:relative;aspect-ratio:1/1;border-radius:32px;background:linear-gradient(145deg,var(--brand),var(--deep));overflow:hidden;box-shadow:var(--sh)}
+.vis::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 260px at 80% 0,rgba(212,160,60,.35),transparent 65%),radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.4px) 0 0/26px 26px}
+.vis .flogo{position:absolute;left:50%;top:50%;width:70%;height:46%;transform:translate(-50%,-50%)}
+.vis .tag{position:absolute;left:22px;bottom:22px;right:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:16px 18px;color:#fff;font-size:14px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.pts{display:grid;gap:14px;margin-top:30px}
+.pt{display:flex;gap:16px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:var(--sf);transition:.25s}
+.pt:hover{border-color:var(--gold);transform:translateX(6px)}
+.pt .ck{width:26px;height:26px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%2315173D' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain;flex:none;margin-top:2px}
+.pt b{display:block}.pt span{color:var(--mute);font-size:15px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.card{background:var(--sf);border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;flex-direction:column;gap:14px;transition:transform .3s,box-shadow .3s,border-color .3s;text-align:left;position:relative;overflow:hidden}
+.card::after{content:"";position:absolute;right:-60px;top:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(212,160,60,.22),transparent 70%);opacity:0;transition:.3s}
+.card:hover{transform:translateY(-8px);box-shadow:var(--sh);border-color:var(--gold)}.card:hover::after{opacity:1}
+.card .n{position:absolute;top:26px;right:30px;font:700 15px var(--hf);color:var(--line)}
+:root[data-theme="dark"] .card .n{color:#3a3f85}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card .n{color:#3a3f85}}
+.card p{color:var(--mute);font-size:15px;flex:1}.card h3{font-size:22px}
+.ico{width:58px;height:58px;border-radius:16px;background:linear-gradient(135deg,var(--brand),var(--brand2));display:grid;place-items:center;flex:none;box-shadow:0 14px 26px -14px rgba(46,49,101,.9)}
+.ico svg{width:28px;height:28px;stroke:#F0C46A}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:56px;counter-reset:s}
+.step{position:relative;padding-top:30px;border-top:2px solid var(--line)}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:-1px;left:0;font:700 44px var(--hf);color:var(--gold);transform:translateY(-62%);background:var(--bg);padding-right:14px;line-height:1}
+.alt .step::before{background:var(--sf)}
+.step h3{font-size:19px;margin-bottom:8px}.step p{color:var(--mute);font-size:15px}
+.cta{background:linear-gradient(135deg,var(--deep),var(--brand));color:#fff;border-radius:32px;padding:68px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;right:-40px;top:50%;width:420px;aspect-ratio:2.2/1;transform:translateY(-50%);background:#fff;opacity:.07;-webkit-mask:var(--sym) center/contain no-repeat;mask:var(--sym) center/contain no-repeat}
+.cta>*{position:relative}.cta h2{font-size:clamp(30px,3.6vw,44px);max-width:18ch}.cta p{color:#C9CCEA;margin-top:12px}
+/* inner header */
+.ph{background:linear-gradient(135deg,#15173D,#2E3165 70%,#3B418F);color:#fff;padding:84px 0 76px;position:relative;overflow:hidden}
+.ph::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 92% 0,rgba(212,160,60,.28),transparent 62%),radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.4px) 0 0/28px 28px}
+.ph::after{content:"";position:absolute;right:-3%;bottom:-30%;width:42%;aspect-ratio:2.2/1;background:#fff;opacity:.06;-webkit-mask:var(--sym) center/contain no-repeat;mask:var(--sym) center/contain no-repeat}
+.ph .c{position:relative}.crumb{color:#B4B8DC;font-size:14px;margin-bottom:18px}.crumb button{background:none;border:0;color:#B4B8DC;cursor:pointer;padding:0;font-size:14px}.crumb button:hover{color:#fff}
+.ph h1{font-size:clamp(40px,5.4vw,66px)}.ph p{color:#C9CCEA;max-width:56ch;margin-top:16px;font-size:19px}
+.mv{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:48px}.mv .card{border-top:4px solid var(--gold)}
+.vals{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:48px}
+.vals div{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:26px 20px;transition:.25s}.vals div:hover{border-color:var(--gold);transform:translateY(-5px)}
+.alt .vals div{background:var(--bg)}.vals b{display:block;font-size:17px;margin-bottom:6px}.vals span{color:var(--mute);font-size:14px}
+.tlw{display:grid;gap:0;margin-top:8px;border-left:2px solid var(--line);padding-left:34px}
+.tli{position:relative;padding:0 0 34px}.tli::before{content:"";position:absolute;left:-43px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--gold);border:4px solid var(--bg)}
+.tli b{display:block;font:700 22px var(--hf)}.tli span{color:var(--mute)}
+table{width:100%;border-collapse:collapse;background:var(--sf);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin-top:36px}
+td{padding:18px 26px;border-bottom:1px solid var(--line);vertical-align:top}tr:last-child td{border:0}td:first-child{width:34%;color:var(--mute);font-weight:600;background:var(--tint)}
+/* services page */
+.sv{display:grid;grid-template-columns:320px 1fr;gap:36px;align-items:start}
+.tabs{display:grid;gap:10px;position:sticky;top:104px}
+.tab{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:18px;border:1px solid var(--line);background:var(--sf);cursor:pointer;text-align:left;color:var(--ink);font-weight:700;font-size:15px;transition:.2s}
+.tab:hover{border-color:var(--gold);transform:translateX(4px)}.tab svg{width:22px;height:22px;stroke:var(--goldt);flex:none}
+.tab.on{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;border-color:transparent}.tab.on svg{stroke:#F0C46A}
+.panel{background:var(--sf);border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--sh)}
+.pb{background:linear-gradient(135deg,var(--deep),var(--brand));color:#fff;padding:44px 44px 40px;position:relative;overflow:hidden}
+.pb .big{position:absolute;right:28px;top:0;font:700 150px var(--hf);color:rgba(255,255,255,.07);line-height:1}
+.pb .ico{background:rgba(255,255,255,.12);box-shadow:none;margin-bottom:22px}.pb h2{font-size:40px;position:relative}.pb p{color:#F0C46A;font-weight:700;margin-top:8px;position:relative}
+.pbd{padding:40px 44px 44px}.pbd .lead{margin-top:0;font-size:17px}
+.ul{list-style:none;padding:0;margin:30px 0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ul li{display:flex;gap:14px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:var(--bg);font-weight:600;font-size:15px}
+.ul li::before{content:"";width:20px;height:20px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3 3 7-7' fill='none' stroke='%2315173D' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E") center/contain;flex:none;margin-top:1px}
+/* gallery */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.chip{padding:10px 20px;border-radius:999px;border:1px solid var(--line);background:var(--sf);font-weight:600;font-size:14px;cursor:pointer;color:var(--ink);transition:.2s}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}.chip:hover{border-color:var(--gold)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.gi{border:0;padding:0;border-radius:24px;overflow:hidden;cursor:pointer;position:relative;aspect-ratio:4/3;background:var(--deep);display:block;width:100%;text-align:left;box-shadow:var(--sh)}
+.gi svg.art{position:absolute;inset:0;width:100%;height:100%;transition:transform .6s}.gi:hover svg.art{transform:scale(1.08)}
+.gi span{position:absolute;left:0;right:0;bottom:0;padding:48px 22px 20px;color:#fff;background:linear-gradient(transparent,rgba(10,11,40,.92))}
+.gi b{display:block;font-size:17px}.gi small{color:#B4B8DC;font-size:13px}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(8,9,32,.9);display:none;place-items:center;padding:24px}.lb.on{display:grid}
+.lbx{max-width:880px;width:100%;background:var(--sf);border-radius:24px;overflow:hidden;position:relative}
+.lbx .im{aspect-ratio:16/9;position:relative;background:var(--deep)}.lbx .im svg{position:absolute;inset:0;width:100%;height:100%}
+.lbx .tx{padding:24px 30px}.lbx .tx p{color:var(--mute);font-size:14px;margin-top:4px}
+.x{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:0;background:rgba(21,23,61,.85);color:#fff;font-size:22px;cursor:pointer;z-index:2}
+/* contact */
+.cg{display:grid;grid-template-columns:.85fr 1.15fr;gap:44px;align-items:start}
+.ci{display:grid;gap:16px}
+.cc{display:flex;gap:18px;align-items:center;padding:22px 24px;border:1px solid var(--line);border-radius:20px;background:var(--sf);text-decoration:none;color:inherit;transition:.25s}
+a.cc:hover{border-color:var(--gold);transform:translateX(6px)}
+.cc .ico{width:50px;height:50px;border-radius:14px}.cc .ico svg{width:24px;height:24px}.cc small{display:block;color:var(--mute);font-size:13px}.cc b{font-size:16px;word-break:break-word}
+.fm{background:var(--sf);border:1px solid var(--line);border-radius:28px;padding:42px;box-shadow:var(--sh)}
+.fm h3{font-size:28px;margin-bottom:6px;font-family:var(--hf)}.fm>p{color:var(--mute);margin-bottom:26px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{display:grid;gap:7px;font-weight:600;font-size:14px;margin-bottom:18px}
+input,select,textarea{font:inherit;font-size:16px;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;background:var(--bg);color:var(--ink);width:100%;transition:.2s}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,160,60,.22)}
+textarea{min-height:140px;resize:vertical}.er{color:#C0392B;font-size:14px;min-height:20px;margin-bottom:12px}
+.ok{text-align:center;padding:14px 0}.ok .ico{margin:0 auto 20px;width:70px;height:70px;border-radius:50%}.ok .acts{justify-content:center;margin-top:24px}.ok p{color:var(--mute);margin-top:8px}
+.map{margin-top:6px;border-radius:20px;border:1px solid var(--line);overflow:hidden;position:relative;height:200px;background:linear-gradient(135deg,var(--deep),var(--brand))}
+.map svg{position:absolute;inset:0;width:100%;height:100%}.map a{position:absolute;left:18px;bottom:18px}
+/* login */
+.lgw{display:grid;grid-template-columns:1fr 1fr;max-width:940px;margin:0 auto;border-radius:30px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:var(--sf)}
+.lgl{background:linear-gradient(145deg,var(--deep),var(--brand));color:#fff;padding:48px;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:32px;overflow:hidden}
+.lgl::before{content:"";position:absolute;inset:0;background:radial-gradient(360px 240px at 90% 0,rgba(212,160,60,.3),transparent 65%),radial-gradient(rgba(255,255,255,.08) 1.2px,transparent 1.4px) 0 0/26px 26px}
+.lgl>*{position:relative}.lgl h2{font-size:32px;margin-bottom:12px}.lgl p{color:#C9CCEA;font-size:15px}
+.lg{padding:48px}.lg h3{font-size:26px;font-family:var(--hf)}.lg>p,.lg p{color:var(--mute);margin:8px 0 24px}
+/* footer */
+footer{background:#0D0E2B;color:#A4A8CC;padding:80px 0 30px;font-size:15px;position:relative;overflow:hidden}
+.fg4{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:44px}
+footer h4{color:#fff;font-size:16px;margin-bottom:18px}footer ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+footer li button,footer a{background:none;border:0;color:#A4A8CC;cursor:pointer;padding:0;font-size:15px;text-decoration:none;text-align:left}footer li button:hover,footer a:hover{color:#fff}
+.fb{border-top:1px solid rgba(255,255,255,.1);margin-top:54px;padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:14px;align-items:center}
+.wa{position:fixed;right:22px;bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:70;background:#1FA855;color:#fff;border-radius:999px;padding:15px 24px;font-weight:700;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,0,0,.45);font-size:15px;transition:.2s}.wa:hover{transform:translateY(-3px)}
+/* motion */
+.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1) var(--d,0s),transform .8s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.pg{animation:in .5s ease both}@keyframes in{from{opacity:0}to{opacity:1}}
+@media (max-width:1020px){
+ .sec{padding:72px 0}.hg,.two,.cg,.sv,.lgw{grid-template-columns:1fr}.hg{gap:48px}.gt:nth-child(even){transform:none}
+ .fg{grid-template-columns:1fr 1fr}.fg div:nth-child(2){border-right:0}.fg div:nth-child(-n+2){border-bottom:1px solid var(--line)}
+ .cards,.gal{grid-template-columns:1fr 1fr}.vals{grid-template-columns:1fr 1fr}.mv{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr;row-gap:50px}
+ .tabs{position:static;grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;padding-bottom:8px}.fg4{grid-template-columns:1fr 1fr}.cta{padding:42px}.vis{aspect-ratio:16/10}
+ nav{display:none;position:fixed;left:0;right:0;top:calc(78px + env(safe-area-inset-top,0px));bottom:0;background:var(--bg);padding:20px 28px;overflow-y:auto}
+ nav.open{display:block}nav ul{flex-direction:column;gap:6px}nav button{width:100%;text-align:left;padding:18px 20px;font:700 22px var(--hf);border-radius:16px}
+ .burger{display:grid}.hd-cta{display:none}.lgl{display:none}.pbd,.pb{padding:30px}
+}
+@media (max-width:620px){.cards,.gal,.fg,.fr,.ul,.vals,.fg4,.glass,.steps{grid-template-columns:1fr}.fg div{border-right:0;border-bottom:1px solid var(--line)}.wa b{display:none}.hero{padding:64px 0 150px}.fm,.lg{padding:26px}.c{padding:0 20px}td:first-child{width:40%}.cta{padding:32px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="c nav">
+ <button class="brand" data-go="home" aria-label="Dan Musa Group home"><span class="mk" role="img" aria-label="Danmusa logo"></span><span><b>Dan Musa Group</b><small>TRADE AND SERVICES</small></span></button>
+ <nav id="nav" aria-label="Main"><ul id="navl"></ul></nav>
+ <button class="btn ln sm hd-cta" data-go="login">Staff login</button>
+ <button class="burger" id="bg" aria-label="Open menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+<main id="m"></main>
+<footer><div class="c">
+ <div class="fg4">
+  <div><div class="flogo" style="width:200px;height:84px;margin-bottom:16px" role="img" aria-label="Danmusa logo"></div><p>A Kaduna-based group of businesses in phones and accessories, real estate, recycling, oil and gas, mining and logistics.</p></div>
+  <div><h4>Company</h4><ul id="fl"></ul></div>
+  <div><h4>Services</h4><ul id="fs"></ul></div>
+  <div><h4>Contact</h4><ul><li><a href="tel:+2348140467162">0814 046 7162</a></li><li><a href="mailto:danmusanigltd@gmail.com">danmusanigltd@gmail.com</a></li><li>19B Rabah Road by NAFCLUB,<br>Kaduna, Kaduna State</li></ul></div>
+ </div>
+ <div class="fb"><span>© 2026 Danmusa International Trade and Services Ltd · RC 7630923</span><button data-go="login" style="color:#fff;font-weight:700;background:none;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-size:14px;padding:9px 20px;border-radius:999px">Staff login</button></div>
+</div></footer>
+<a class="wa" href="https://wa.me/2348140467162" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp <b>us</b></a>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Gallery preview"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="config.js"></script>
+<script>
+const $=s=>document.querySelector(s);document.documentElement.classList.add("js");
+const S=[
+{n:"Phone and Accessories",t:"Phones, gadgets and accessories",d:"Quality phones, computers and accessories supplied to individuals and businesses, with fair prices and honest stock records.",l:["Smartphones and tablets","Computers and laptops","Accessories and chargers","Bulk supply for businesses"],i:'<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>'},
+{n:"Real Estate",t:"Property and construction",d:"Property sales, leasing and management, with building and road construction from planning to handover.",l:["Buying and selling land","Estate agency and brokerage","Building and estate development","Road construction and repairs"],i:'<path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6"/>'},
+{n:"Recycling",t:"Plastic and waste recovery",d:"Collecting, sorting and processing waste so it returns to industry as useful raw material.",l:["Waste collection","Sorting and processing","Plastic, glass, paper and metal","Recycling plant development"],i:'<path d="M4 12a8 8 0 0 1 14-5l2-2v6h-6l2.2-2.2A5.5 5.5 0 0 0 6.5 12M20 12a8 8 0 0 1-14 5l-2 2v-6h6l-2.2 2.2A5.5 5.5 0 0 0 17.5 12"/>'},
+{n:"Oil and Gas",t:"Filling station and supplies",d:"Purchase and supply of petroleum products, with every litre in and out properly recorded.",l:["Petroleum products supply","Filling station operations","Bulk supply to businesses","Daily stock and sales records"],i:'<path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/>'},
+{n:"Mining",t:"Lithium and copper",d:"Solid mineral exploration and trade, carried out under the proper licences and permits.",l:["Solid mineral exploration","Lithium and copper","Raw material for export","Local and foreign partnerships"],i:'<path d="M6 4h12l4 5-10 12L2 9zM2 9h20M9 4l3 5 3-5"/>'},
+{n:"Logistics",t:"Inter-state transport",d:"Scheduled passenger and goods transport between Nigerian states, with tracked trips and vehicles.",l:["Inter-state passenger travel","Goods transport","Scheduled routes","Fleet and driver management"],i:'<path d="M2 7h11v9H2zM13 10h4l3 3v3h-7"/><circle cx="6.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/>'}];
+const ic=i=>`<svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${i}</svg>`;
+const PG=[["home","Home"],["about","About"],["services","Services"],["gallery","Gallery"],["contact","Contact"]];
+const PT={shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/>',layers:'<path d="M12 3l9 5-9 5-9-5zM3 13l9 5 9-5"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',pin:'<path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>',phone:'<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>',chat:'<path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/>',mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',ok:'<path d="M5 12.5l4.5 4.5L19 7.5"/>'};
+let cur="home",si=0,gf="All";
+const crumb=n=>`<div class="crumb"><button data-go="home">Home</button> / ${n}</div>`;
+const hd=(n,t,p)=>`<section class="ph"><div class="c">${crumb(n)}<h1>${t}</h1><p>${p}</p></div></section>`;
+const cta=`<section class="sec"><div class="c rv"><div class="cta"><div><h2>Have a project or a supply need?</h2><p>Tell us what you need and we will respond within one working day.</p></div><button class="btn gold arr" data-go="contact">Contact us</button></div></div></section>`;
+const V={
+home:()=>`<section class="hero"><div class="wm"></div><div class="c hg"><div><span class="pill"><i></i>Kaduna, Nigeria · RC 7630923</span><h1>Six businesses. <em>One trusted group.</em></h1><p class="sub">Dan Musa Group supplies, builds, recycles, mines and moves goods and people across Nigeria.</p><div class="acts"><button class="btn gold arr" data-go="services">Explore our services</button><button class="btn out" data-go="about">About the group</button></div></div>
+<div class="glass">${S.map((s,k)=>`<button class="gt" data-go="services" data-i="${k}"><span>0${k+1}</span>${ic(s.i)}<b>${s.n}</b><small>${s.t}</small></button>`).join("")}</div></div></section>
+<div class="facts"><div class="c rv"><div class="fg"><div><b>6</b><span>Business divisions</span></div><div><b>2024</b><span>Year of incorporation</span></div><div><b>RC 7630923</b><span>Registered company</span></div><div><b>Kaduna</b><span>Head office, serving Nigeria</span></div></div></div></div>
+<div class="tick" aria-hidden="true"><div>${[1,2].map(()=>S.map(s=>`<span>${s.n}</span>`).join("")+"<span>CAC registered</span><span>SCUML registered</span>").join("")}</div></div>
+<section class="sec"><div class="c two"><div class="rv"><span class="eb">About us</span><h2 class="h2">One group, one standard of work</h2><p class="lead">Dan Musa Group brings practical, essential trades under one management. Each business has its own team, and all of them answer to the same standard of quality and honest record keeping.</p><div class="acts" style="margin-top:32px"><button class="btn nv arr" data-go="about">Read our story</button></div></div>
+<div class="rv" style="--d:.15s"><div class="pts"><div class="pt"><i class="ck"></i><p><b>Registered and compliant</b><span>Incorporated with the Corporate Affairs Commission and registered with SCUML.</span></p></div><div class="pt"><i class="ck"></i><p><b>Broad capability</b><span>From phones and property to fuel, minerals, recycling and transport.</span></p></div><div class="pt"><i class="ck"></i><p><b>Accountable management</b><span>Every division reports to one management, so you deal with one responsible company.</span></p></div></div></div></div></section>
+<section class="sec alt"><div class="c"><div class="center rv"><span class="eb">Our services</span><h2 class="h2">What we do</h2><p class="lead">Six services, each run by its own specialists.</p></div><div class="cards">${S.map((s,k)=>`<div class="card rv" style="--d:${(k%3)*.1}s"><span class="n">0${k+1}</span><div class="ico">${ic(s.i)}</div><h3>${s.n}</h3><p>${s.d}</p><button class="tl" data-go="services" data-i="${k}">Learn more</button></div>`).join("")}</div></div></section>
+<section class="sec"><div class="c"><div class="center rv"><span class="eb">How we work</span><h2 class="h2">Simple, clear and accountable</h2></div><div class="steps">${[["Listen","We start by understanding what you need and by when."],["Plan","We agree scope, price and timing in writing."],["Deliver","The right division does the work to a clear standard."],["Report","Invoices, receipts and records are kept for every job."]].map((x,k)=>`<div class="step rv" style="--d:${k*.1}s"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join("")}</div></div></section>
+<section class="sec alt"><div class="c"><div class="center rv"><span class="eb">Why Dan Musa Group</span><h2 class="h2">A partner you can rely on</h2></div><div class="cards" style="grid-template-columns:repeat(4,1fr)">${[["shield","Registered","CAC and SCUML registered, RC 7630923."],["layers","One group","Six services under one accountable management."],["chart","Clear records","Every sale, invoice and receipt is recorded."],["pin","Local roots","Based in Kaduna and serving Nigeria."]].map((x,k)=>`<div class="card rv" style="--d:${k*.1}s"><div class="ico">${ic(PT[x[0]])}</div><h3 style="font-size:19px">${x[1]}</h3><p>${x[2]}</p></div>`).join("")}</div></div></section>${cta}`,
+about:()=>hd("About","About Dan Musa Group","Who we are, what we stand for and how the company is set up.")+`<section class="sec"><div class="c two"><div class="vis rv"><div class="flogo"></div><div class="tag">Danmusa International Trade and Services Ltd<br><b>RC 7630923</b></div></div><div class="rv" style="--d:.15s"><span class="eb">Our story</span><h2 class="h2">Built on practical, essential trades</h2><p class="lead">Dan Musa Group began in Kaduna and now brings six lines of business under one name. Phones and accessories, buildings and roads, recycling, fuel supply, solid minerals and inter-state transport are different trades with one thing in common: people and industry rely on them every day.</p><div class="tlw" style="margin-top:34px"><div class="tli"><b>June 2024</b><span>Danmusa International Trade and Services Ltd is incorporated.</span></div><div class="tli"><b>Today</b><span>Six business divisions run under one management.</span></div><div class="tli"><b>Going digital</b><span>One staff portal keeps each division’s records, invoices and receipts in one place.</span></div></div></div></div>
+<div class="c"><div class="mv"><div class="card rv"><h3>Our vision</h3><p>To be a respected Nigerian group that earns trust in every sector it enters.</p></div><div class="card rv" style="--d:.1s"><h3>Our mission</h3><p>To deliver reliable products and services, keep honest records and create lasting value for customers, partners and communities.</p></div></div></div></section>
+<section class="sec alt"><div class="c"><span class="eb">What guides us</span><h2 class="h2">Our values</h2><div class="vals">${[["Integrity","We do what we say."],["Reliability","Deliveries and work on time."],["Accountability","Every entry is tracked."],["Teamwork","Six businesses, one standard."],["Sustainability","Recycling and responsible mining."]].map((x,k)=>`<div class="rv" style="--d:${k*.07}s"><b>${x[0]}</b><span>${x[1]}</span></div>`).join("")}</div></div></section>
+<section class="sec"><div class="c"><span class="eb">The company</span><h2 class="h2">Company information</h2><table><tr><td>Registered name</td><td>Danmusa International Trade and Services Ltd</td></tr><tr><td>Trading as</td><td>Dan Musa Group</td></tr><tr><td>RC number</td><td>7630923</td></tr><tr><td>Company type</td><td>Private company limited by shares</td></tr><tr><td>Date of registration</td><td>28 June 2024</td></tr><tr><td>Registered address</td><td>19B Rabah Road by NAFCLUB, Kaduna, Kaduna State, Nigeria</td></tr><tr><td>Regulatory registrations</td><td>Corporate Affairs Commission (CAC); Special Control Unit against Money Laundering (SCUML)</td></tr></table></div></section>${cta}`,
+services:()=>{const s=S[si];return hd("Services","Our services","Six businesses, each with specialist teams and clear records.")+`<section class="sec"><div class="c sv"><div class="tabs" role="tablist">${S.map((x,k)=>`<button class="tab ${k==si?"on":""}" role="tab" aria-selected="${k==si}" data-svc="${k}">${ic(x.i)}${x.n}</button>`).join("")}</div>
+<div class="panel pg" role="tabpanel"><div class="pb"><span class="big">0${si+1}</span><div class="ico">${ic(s.i)}</div><h2>${s.n}</h2><p>${s.t}</p></div><div class="pbd"><p class="lead">${s.d}</p><ul class="ul">${s.l.map(x=>`<li>${x}</li>`).join("")}</ul><div class="acts"><button class="btn gold arr" data-go="contact" data-q="${s.n}">Make an enquiry</button><button class="btn ln" data-go="gallery">See our work</button></div></div></div></div></section>`},
+gallery:()=>{const cats=["All",...S.map(s=>s.n),"Our team"];const it=G.filter(g=>gf=="All"||g[1]==gf);return hd("Gallery","Our work in view","Projects, stations, vehicles, sites and the people behind them.")+`<section class="sec"><div class="c"><div class="chips">${cats.map(c=>`<button class="chip ${c==gf?"on":""}" data-f="${c}">${c}</button>`).join("")}</div><div class="gal pg">${it.map(g=>`<button class="gi" data-lb="${G.indexOf(g)}">${art(g)}<span><b>${g[0]}</b><small>${g[1]}</small></span></button>`).join("")}</div><p class="lead" style="font-size:14px;margin-top:30px">These tiles are design placeholders and will be replaced with the company’s own photographs.</p></div></section>`},
+contact:()=>hd("Contact","Contact us","Call, message on WhatsApp or send an enquiry. We reply within one working day.")+`<section class="sec"><div class="c cg"><div class="ci">
+<a class="cc rv" href="tel:+2348140467162"><div class="ico">${ic(PT.phone)}</div><div><small>Phone</small><b>0814 046 7162</b></div></a>
+<a class="cc rv" style="--d:.06s" href="https://wa.me/2348140467162" target="_blank" rel="noopener"><div class="ico">${ic(PT.chat)}</div><div><small>WhatsApp</small><b>Chat with us</b></div></a>
+<a class="cc rv" style="--d:.12s" href="mailto:danmusanigltd@gmail.com"><div class="ico">${ic(PT.mail)}</div><div><small>Email</small><b>danmusanigltd@gmail.com</b></div></a>
+<div class="cc rv" style="--d:.18s"><div class="ico">${ic(PT.pin)}</div><div><small>Office</small><b>19B Rabah Road by NAFCLUB, Kaduna, Kaduna State</b></div></div>
+<div class="map rv"><svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice"><g stroke="#fff" stroke-opacity=".14" fill="none" stroke-width="2"><path d="M0 130 C100 100 200 150 400 80"/><path d="M80 0 L140 200"/><path d="M270 0 L220 200"/><path d="M0 44 L400 120"/></g><circle cx="200" cy="90" r="34" fill="#D4A03C" fill-opacity=".22"/><circle cx="200" cy="90" r="10" fill="#D4A03C"/></svg><a class="btn gold sm" href="https://www.google.com/maps/search/?api=1&query=19B+Rabah+Road+Kaduna" target="_blank" rel="noopener">Open in Google Maps</a></div></div>
+<div class="fm rv" id="fm" style="--d:.1s">${form()}</div></div></section>`,
+login:()=>hd("Staff login","Staff portal","For approved Dan Musa Group staff only.")+`<section class="sec"><div class="c"><div class="lgw"><div class="lgl"><div class="flogo" style="width:190px;height:80px" role="img" aria-label="Danmusa logo"></div><div><h2>One office for all six services</h2><p>Sign in to record daily work, issue invoices and receipts and follow tasks. You only see the services the CEO has opened for you.</p></div></div><div class="lg" id="lg"><h3>Sign in</h3><p>Use the username and password given to you by management. Each person sees only what their job allows.</p><div id="lgs"><form id="lf" novalidate><label>Username<input name="u" autocomplete="username" autocapitalize="none"></label><label>Password<input name="p" type="password" autocomplete="current-password"></label><div class="er" id="le" role="alert"></div><button class="btn nv" style="width:100%" type="submit">Sign in</button></form></div></div></div></div></section>`};
+function form(q){return `<h3>Send an enquiry</h3><p>Fill in the form and choose how to send it.</p><form id="cf" novalidate><div class="fr"><label>Full name<input name="n" autocomplete="name"></label><label>Phone number<input name="p" type="tel" autocomplete="tel"></label></div><label>Service<select name="s"><option>General enquiry</option>${S.map(s=>`<option ${s.n==q?"selected":""}>${s.n}</option>`).join("")}</select></label><label>Message<textarea name="m" placeholder="Tell us what you need"></textarea></label><div class="er" id="ce" role="alert"></div><button class="btn gold" style="width:100%" type="submit">Continue</button></form>`}
+const G=[["Estate development","Real Estate"],["Road construction","Real Estate"],["Phone and gadget showroom","Phone and Accessories"],["Filling station","Oil and Gas"],["Fuel supply","Oil and Gas"],["Exploration site","Mining"],["Sorting facility","Recycling"],["Plastic bales","Recycling"],["Passenger fleet","Logistics"],["Management team","Our team"]];
+const art=g=>{const k=G.indexOf(g),s=S.find(x=>x.n==g[1]),c=[["#15173D","#3B418F"],["#1F2255","#4349A0"],["#2E3165","#5A60BE"]][k%3],id="a"+k+Math.random().toString(36).slice(2,5);return `<svg class="art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="400" height="300" fill="url(#${id})"/><circle cx="${320-k*14}" cy="70" r="120" fill="none" stroke="#D4A03C" stroke-opacity=".35" stroke-width="2"/><circle cx="${320-k*14}" cy="70" r="70" fill="#D4A03C" fill-opacity=".12"/><path d="M0 232 C70 190 130 250 210 214 S340 170 400 206 V300 H0Z" fill="#fff" fill-opacity=".08"/><path d="M0 262 C80 228 150 280 240 246 S350 222 400 244 V300 H0Z" fill="#D4A03C" fill-opacity=".16"/><g transform="translate(160 78) scale(3.2)" stroke="#F0C46A" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">${s?s.i:'<circle cx="12" cy="8" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/>'}</g></svg>`};
+let io=null;function reveal(){const els=document.querySelectorAll(".rv:not(.in)");if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}if(!io)io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -40px 0px"});els.forEach(e=>io.observe(e))}
+function render(p){cur=p;$("#m").innerHTML=`<div class="pg">${V[p]()}</div>`;
+ $("#navl").innerHTML=PG.map(x=>`<li><button data-go="${x[0]}" class="${x[0]==p?"on":""}">${x[1]}</button></li>`).join("");
+ document.title=(p=="home"?"Dan Musa Group":(PG.concat([["login","Staff login"]]).find(x=>x[0]==p)[1])+" | Dan Musa Group");
+ $("#nav").classList.remove("open");$("#bg").setAttribute("aria-expanded","false");window.scrollTo(0,0);reveal()}
+function go(p,i,q){if(!V[p])p="home";if(p=="services"&&i!=null)si=+i;render(p);if(p=="contact"&&q){const s=$("#cf select");if(s)s.value=q}try{history.replaceState(null,"","#/"+p)}catch(e){}}
+$("#fl").innerHTML=PG.map(x=>`<li><button data-go="${x[0]}">${x[1]}</button></li>`).join("");
+$("#fs").innerHTML=S.map((s,k)=>`<li><button data-go="services" data-i="${k}">${s.n}</button></li>`).join("");
+document.addEventListener("click",e=>{const t=e.target;let a;
+ if(a=t.closest("[data-go]")){e.preventDefault();go(a.dataset.go,a.dataset.i,a.dataset.q);return}
+ if(a=t.closest("[data-svc]")){si=+a.dataset.svc;render("services");window.scrollTo(0,0);return}
+ if(a=t.closest("[data-f]")){gf=a.dataset.f;const y=window.scrollY;render("gallery");window.scrollTo(0,y);return}
+ if(a=t.closest("[data-lb]")){const g=G[+a.dataset.lb],l=$("#lb");l.innerHTML=`<div class="lbx"><button class="x" data-close aria-label="Close">×</button><div class="im">${art(g)}</div><div class="tx"><h3>${g[0]}</h3><p>${g[1]}. Placeholder image, to be replaced with a company photograph.</p></div></div>`;l.classList.add("on");return}
+ if(t.id=="lb"||t.closest("[data-close]"))$("#lb").classList.remove("on");
+ if(t.closest("#bg")){const o=$("#nav").classList.toggle("open");$("#bg").setAttribute("aria-expanded",o)}
+ if(a=t.closest("[data-copy]")){navigator.clipboard&&navigator.clipboard.writeText(a.dataset.copy).then(()=>a.textContent="Copied",()=>a.textContent="Copy failed");if(!navigator.clipboard)a.textContent="Copy not available"}
+ if(t.closest("[data-edit]")){$("#fm").innerHTML=form()}});
+document.addEventListener("keydown",e=>{if(e.key=="Escape")$("#lb").classList.remove("on")});
+window.addEventListener("scroll",()=>$("#hd").classList.toggle("sc",window.scrollY>8),{passive:true});
+document.addEventListener("submit",e=>{e.preventDefault();const f=e.target;
+ if(f.id=="cf"){const n=f.n.value.trim(),p=f.p.value.trim(),m=f.m.value.trim(),er=$("#ce");
+  if(!n||!p||!m){er.textContent="Please enter your name, phone number and message.";return}
+  const txt=`Hello Dan Musa Group, my name is ${n} (${p}). Service: ${f.s.value}.\n\n${m}`;
+  $("#fm").innerHTML=`<div class="ok"><div class="ico">${ic(PT.ok)}</div><h3>Almost done, ${n.split(" ")[0].replace(/[<>&"]/g,"")}</h3><p>Choose how you want to send your enquiry to Dan Musa Group.</p><div class="acts"><a class="btn gold" target="_blank" rel="noopener" href="https://wa.me/2348140467162?text=${encodeURIComponent(txt)}">Send on WhatsApp</a><a class="btn nv" href="mailto:danmusanigltd@gmail.com?subject=${encodeURIComponent("Enquiry: "+f.s.value)}&body=${encodeURIComponent(txt)}">Send by email</a></div><div class="acts" style="margin-top:12px"><button class="btn ln sm" data-copy="${txt.replace(/"/g,"&quot;")}">Copy message</button><button class="btn ln sm" data-edit>Edit enquiry</button></div></div>`}
+ if(f.id=="lf")siteLogin(f)});
+const h=(location.hash||"").replace("#/","");go(V[h]?h:"home");
+const CFG=window.DMG_CONFIG||{},SB=(CFG.url&&CFG.anonKey&&window.supabase)?supabase.createClient(CFG.url,CFG.anonKey):null;
+async function siteLogin(f){const er=$("#le"),un=f.u.value.trim().toLowerCase(),pw=f.p.value;
+ if(!un||!pw){er.textContent="Enter your username and password.";return}
+ if(!SB){er.textContent="The staff portal is not connected yet. Please contact the administrator.";return}
+ er.textContent="Signing in...";const email=un.includes("@")?un:un+"@"+(CFG.emailDomain||"staff.danmusa.ng");
+ const{error}=await SB.auth.signInWithPassword({email,password:pw});
+ if(error){er.textContent="Username or password is not correct.";return}
+ er.textContent="Welcome. Opening the portal...";location.href="portal/"}
+async function checkSess(){if(!SB)return;try{const{data}=await SB.auth.getSession();if(data.session){$("#lgs").innerHTML='<p style="color:var(--mute);margin-bottom:18px">You are already signed in.</p><a class="btn nv" style="width:100%" href="portal/">Continue to the staff portal</a><button class="btn ln" style="width:100%;margin-top:10px" id="so">Sign out</button>';$("#so").onclick=async()=>{await SB.auth.signOut();go("login")}}}catch(e){}}
+const _render=render;render=function(p){_render(p);if(p=="login")checkSess()};
+</script>
+</body>
+</html>
