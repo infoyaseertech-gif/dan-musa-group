@@ -8,15 +8,17 @@ create table public.services (
   key    text primary key,
   name   text not null,
   prefix text not null unique,
-  sort   int  not null default 0
+  sort   int  not null default 0,
+  is_store boolean not null default false      -- true for services that run a shop with stock
 );
-insert into public.services (key, name, prefix, sort) values
-  ('tel','Phone and Accessories','TEL',1),
-  ('re' ,'Real Estate','RE',2),
-  ('rec','Recycling','REC',3),
-  ('oil','Oil and Gas','OIL',4),
-  ('min','Mining','MIN',5),
-  ('log','Logistics','LOG',6);
+insert into public.services (key, name, prefix, sort, is_store) values
+  ('tel','Phone and Accessories','TEL',1,true),
+  ('tex','Textile','TEX',2,true),
+  ('re' ,'Real Estate','RE',3,false),
+  ('rec','Recycling','REC',4,false),
+  ('oil','Oil and Gas','OIL',5,false),
+  ('min','Mining','MIN',6,false),
+  ('log','Logistics','LOG',7,false);
 
 create table public.profiles (
   id         uuid primary key references auth.users(id) on delete cascade,
@@ -95,26 +97,29 @@ begin
   return format('DMG-%s-%s-%s', v_prefix, p_kind, lpad(v_n::text, 4, '0'));
 end $$;
 
--- ---------- Phone and Accessories store ----------
+-- ---------- Shops: Phone and Accessories, Textile (stock, sales, receipts) ----------
 create table public.products (
   id         uuid primary key default gen_random_uuid(),
+  service    text not null references public.services(key),
   sku        text unique,
   name       text not null,
   cat        text,
   brand      text,
+  unit       text not null default 'Piece' check (unit in ('Piece','Yard','Metre','Roll','Set')),
   cost       numeric not null default 0 check (cost >= 0),
   price      numeric not null default 0 check (price >= 0),
-  min_stock  int     not null default 0,
-  qty        int     not null default 0 check (qty >= 0),   -- changed only by stock_moves
+  min_stock  numeric(14,2) not null default 0,
+  qty        numeric(14,2) not null default 0 check (qty >= 0),   -- changed only by stock_moves
   created_at timestamptz not null default now()
 );
 
 create table public.stock_moves (
   id         uuid primary key default gen_random_uuid(),
+  service    text not null references public.services(key),
   date       date not null default current_date,
   product_id uuid not null references public.products(id),
   type       text not null check (type in ('in','sale','loss','return')),   -- loss = damaged or lost, return = customer return
-  qty        int  not null check (qty > 0),
+  qty        numeric(14,2) not null check (qty > 0),
   cost       numeric,
   price      numeric,
   ref        text,
@@ -124,7 +129,7 @@ create table public.stock_moves (
 create table public.sales (
   id         uuid primary key default gen_random_uuid(),
   no         text not null unique,
-  service    text not null default 'tel' check (service = 'tel') references public.services(key),
+  service    text not null references public.services(key),
   date       date not null default current_date,
   customer   text,
   phone      text,
@@ -240,9 +245,10 @@ create table public.activity_log (
 -- Stock changes only through stock movements, and never below zero.
 create or replace function public.apply_stock_move() returns trigger
 language plpgsql security definer set search_path = public as $$
-declare v_name text; v_qty int;
+declare v_name text; v_qty numeric; v_svc text;
 begin
-  select name, qty into v_name, v_qty from products where id = new.product_id for update;
+  select name, qty, service into v_name, v_qty, v_svc from products where id = new.product_id for update;
+  if v_svc is distinct from new.service then raise exception 'Product and stock movement are in different services'; end if;
   if new.type in ('sale','loss') and v_qty < new.qty then
     raise exception 'Not enough stock for %. Only % left.', v_name, v_qty;
   end if;
@@ -252,6 +258,18 @@ begin
 end $$;
 create trigger trg_stock_move before insert on public.stock_moves
   for each row execute function public.apply_stock_move();
+
+-- Only services marked as shops can hold products.
+create or replace function public.guard_shop() returns trigger
+language plpgsql security definer set search_path = public as $$
+begin
+  if not exists (select 1 from services where key = new.service and is_store) then
+    raise exception 'This service does not run a shop';
+  end if;
+  return new;
+end $$;
+create trigger trg_shop_products before insert on public.products
+  for each row execute function public.guard_shop();
 
 -- A payment receipt raises the invoice's paid amount and can never exceed the total.
 create or replace function public.apply_receipt() returns trigger
@@ -297,20 +315,23 @@ create trigger trg_task before update on public.tasks
 -- Completing a sale is one all-or-nothing step: stock out, sale record and receipt.
 create or replace function public.complete_sale(p jsonb) returns void
 language plpgsql security definer set search_path = public as $$
-declare l jsonb; v_total numeric := 0;
+declare l jsonb; v_total numeric := 0; v_svc text := p->>'service';
 begin
-  if not has_svc('tel') then raise exception 'You do not have access to this service'; end if;
+  if not exists (select 1 from services where key = v_svc and is_store) then
+    raise exception 'This service does not run a shop';
+  end if;
+  if not has_svc(v_svc) then raise exception 'You do not have access to this service'; end if;
   for l in select * from jsonb_array_elements(p->'lines') loop
-    insert into stock_moves (date, product_id, type, qty, price, ref, created_by)
-      values ((p->>'date')::date, (l->>'pid')::uuid, 'sale', (l->>'qty')::int,
+    insert into stock_moves (service, date, product_id, type, qty, price, ref, created_by)
+      values (v_svc, (p->>'date')::date, (l->>'pid')::uuid, 'sale', (l->>'qty')::numeric,
               (l->>'price')::numeric, p->>'id', auth.uid());          -- the stock rule runs here
-    v_total := v_total + (l->>'qty')::int * (l->>'price')::numeric;
+    v_total := v_total + (l->>'qty')::numeric * (l->>'price')::numeric;
   end loop;
   insert into sales (id, no, service, date, customer, phone, method, lines, total, created_by)
-    values ((p->>'id')::uuid, p->>'no', 'tel', (p->>'date')::date, p->>'customer', p->>'phone',
+    values ((p->>'id')::uuid, p->>'no', v_svc, (p->>'date')::date, p->>'customer', p->>'phone',
             p->>'method', p->'lines', v_total, auth.uid());
   insert into receipts (id, no, service, date, customer, descr, amt, method, ref, sale_id, created_by)
-    values ((p->>'receipt_id')::uuid, p->>'no', 'tel', (p->>'date')::date, p->>'customer',
+    values ((p->>'receipt_id')::uuid, p->>'no', v_svc, (p->>'date')::date, p->>'customer',
             p->>'descr', v_total, p->>'method', '', (p->>'id')::uuid, auth.uid());
 end $$;
 
@@ -340,9 +361,9 @@ grant insert (id,name,phone,addr,created_by) on customers to authenticated;
 grant delete on customers to authenticated;
 grant select on services, profiles, user_services, settings, products, stock_moves, sales, records,
   invoices, receipts, tasks, announcements, documents, activity_log to authenticated;
-grant insert (id,sku,name,cat,brand,cost,price,min_stock) on products to authenticated;
-grant update (sku,name,cat,brand,cost,price,min_stock) on products to authenticated;
-grant insert (id,date,product_id,type,qty,cost,price,ref,created_by) on stock_moves to authenticated;
+grant insert (id,service,sku,name,cat,brand,unit,cost,price,min_stock) on products to authenticated;
+grant update (sku,name,cat,brand,unit,cost,price,min_stock) on products to authenticated;
+grant insert (id,service,date,product_id,type,qty,cost,price,ref,created_by) on stock_moves to authenticated;
 grant insert (id,service,date,data,status,created_by) on records to authenticated;
 grant update (status) on records to authenticated;
 grant delete on records to authenticated;
@@ -390,14 +411,14 @@ create policy us_sel on user_services for select
 create policy us_ins on user_services for insert with check (is_ceo());
 create policy us_del on user_services for delete using (is_ceo());
 
--- Phone and Accessories store (service 'tel')
-create policy prod_sel on products for select using (has_svc('tel'));
-create policy prod_ins on products for insert with check (lead_for('tel'));
-create policy prod_upd on products for update using (lead_for('tel')) with check (lead_for('tel'));
-create policy mv_sel on stock_moves for select using (has_svc('tel'));
+-- Shops (Phone and Accessories, Textile): everything is scoped to the service
+create policy prod_sel on products for select using (has_svc(service));
+create policy prod_ins on products for insert with check (lead_for(service));
+create policy prod_upd on products for update using (lead_for(service)) with check (lead_for(service));
+create policy mv_sel on stock_moves for select using (has_svc(service));
 create policy mv_ins on stock_moves for insert with check (created_by = auth.uid() and (
-  (type = 'in' and has_svc('tel')) or (type in ('loss','return') and lead_for('tel'))));
-create policy sale_sel on sales for select using (has_svc('tel'));
+  (type = 'in' and has_svc(service)) or (type in ('loss','return') and lead_for(service))));
+create policy sale_sel on sales for select using (has_svc(service));
 
 -- Records: staff enter them as Pending; only managers and the CEO approve
 create policy rec_sel on records for select using (has_svc(service));
