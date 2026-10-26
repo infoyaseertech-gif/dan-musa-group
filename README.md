@@ -92,3 +92,23 @@ dan-musa-group/
 - `config.js` holds only the public (anon) key, so it is safe to commit. **Never** commit the `service_role` key,
   database password or any `.env` file.
 - Every push to the `main` branch redeploys the site automatically on Vercel.
+
+
+## Usernames and passwords
+- **Everyone** can change their own password and login name: open **Account** in the portal.
+  Changing either needs the current password.
+- **The Admin (CEO)** can change anyone's login name and display name (Staff, then Change username),
+  and set a new password for anyone (Staff, then Reset password).
+- **A second Admin:** Staff, Add staff, role **Admin**. Keep at least two Admins so one can always reset the other.
+- A login name is 3 to 30 letters, numbers, dots or dashes (for example `hauwa.k`), or a full email address.
+- **Forgot password:** staff ask the Admin to reset it. An account that signs in with a real email address can use
+  **Forgot your password?** on the sign-in screen to get a reset link by email.
+  For this to work, in Supabase open **Authentication, URL Configuration** and set
+  **Site URL** to your website address, and add `https://YOUR-SITE/portal/` under **Redirect URLs**.
+- **Admin locked out and no second Admin:** use `supabase/admin_recovery.sql` in the Supabase SQL Editor.
+
+## Deploying the account function
+```
+npx supabase@latest functions deploy staff-admin
+```
+Run this again whenever `supabase/functions/staff-admin/index.ts` changes.
