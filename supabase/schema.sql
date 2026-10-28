@@ -105,6 +105,8 @@ create table public.products (
   name       text not null,
   cat        text,
   brand      text,
+  imei       text check (imei is null or imei ~ '^[0-9]{14,16}$'),   -- phones: one handset per product
+  colour     text,
   unit       text not null default 'Piece' check (unit in ('Piece','Yard','Metre','Roll','Set')),
   cost       numeric not null default 0 check (cost >= 0),
   price      numeric not null default 0 check (price >= 0),
@@ -112,6 +114,8 @@ create table public.products (
   qty        numeric(14,2) not null default 0 check (qty >= 0),   -- changed only by stock_moves
   created_at timestamptz not null default now()
 );
+
+create unique index products_imei_key on public.products (imei) where imei is not null;
 
 create table public.stock_moves (
   id         uuid primary key default gen_random_uuid(),
